@@ -9,6 +9,8 @@ a. Klasę Client, reprezentującą klienta banku. Klasa powinna zawierać pola:
 reprezentujące odpowiednio imię i nazwisko klienta, numer konta oraz saldo.
  */
 public class Client {
+
+    // myślę, że wartoby zaimplementować metody equals i hashCode 
     private String name;
     private String surname;
     private String accountNumber;

@@ -28,6 +28,8 @@ public class Main {
 
         Bank centralBank = new Bank();
         for (Client client : list) {           //  jesli odniosę się do centralBank.getClients() to wyjdzie pusta kolekcja?
+            // - tak, bo tworząc nowy bank przez 'new Bank()', w konstruktorze twożona jest nowa, pusta kolekcja klientów
+
             centralBank.addClient(client);    //w tym momencie niepotrzebne
         }
         
@@ -39,6 +41,7 @@ public class Main {
         System.out.println("Provide amount to transfer.");
         double amountToTransfer2;
         int counter = list.size();
+        // nie do konca rozumiem co ma robic ponizszy blok kodu
         do{
             Scanner scan2 = new Scanner(System.in);
             amountToTransfer2 = scan2.nextDouble();
