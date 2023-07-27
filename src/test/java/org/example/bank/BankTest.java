@@ -1,5 +1,6 @@
 package org.example.bank;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -10,13 +11,25 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 class BankTest {
+    private Bank bank;
+    private Client client1;
+    private Client client2;
+    //AfterEach - może być wykorzystany jako taki 'cleaner' naszych danych wyjściowych
+
+    @BeforeAll
+    public void setUpOfObjectInstances(){
+        bank = new Bank();
+        client1 = new Client("Jan", "Kowalski", "11 1234 1234 1234 1234 1234 1234");
+        client2 = new Client("Ewa", "Zwierzyńska", "33 1234 1234 1234 1234 1234 1234");
+    }
+
     @Test
     public void shouldReturnClientCount(){
         // given
-        Bank bank = new Bank();
-
-        Client client1 = new Client("Jan", "Kowalski", "11 1234 1234 1234 1234 1234 1234");
-        Client client2 = new Client("Ewa", "Zwierzyńska", "33 1234 1234 1234 1234 1234 1234");
+//        Bank bank = new Bank();
+//
+//        Client client1 = new Client("Jan", "Kowalski", "11 1234 1234 1234 1234 1234 1234");
+//        Client client2 = new Client("Ewa", "Zwierzyńska", "33 1234 1234 1234 1234 1234 1234");
 
         Set<Client> clients = new HashSet<>();
         clients.add(client1);

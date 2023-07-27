@@ -39,22 +39,24 @@ public class Main {
         System.out.println("Provide amount to transfer.");
         double amountToTransfer2;
         int counter = list.size();
+        //wykonanie przelewów do wszystkich zdeklarowanych klientów (tylko na potrzeby zadania)
+        Client[] allTransfers = new Client[list.size()]; // jak stworzyć array przy użyciu centralBank?
+        int index = 0;
+        for ( Client client : list){
+            allTransfers[index] = client;
+            index++;
+        }
         do{
             Scanner scan2 = new Scanner(System.in);
             amountToTransfer2 = scan2.nextDouble();
-            Client[] allTransfers = new Client[list.size()]; // jak stworzyć array przy użyciu centralBank?
-            int index = 0;
-            for ( Client client : list){
-                allTransfers[index] = client;
-                index++;
-            }
-            Client clientA = allTransfers[list.size()-1];
-            Client clientB = allTransfers[list.size() - 2];
+
+            Client clientA = allTransfers[counter -1];
+            Client clientB = allTransfers[counter - 2];
             bankTransfer(centralBank,clientA,clientB,amountToTransfer2);
             System.out.println();
             counter--;
             }
-        while(counter == 1); // dlaczego program wychodzi z pętli do-while? (zamiast wykonać się 7 razy?
+        while(counter > 1); // dlaczego program wychodzi z pętli do-while? (zamiast wykonać się 7 razy?
     }
     private static void debitFundsToAccountsAllClients(Bank bank, double amount){
         Client[] debitFunds = new Client[bank.getClients().size()];
